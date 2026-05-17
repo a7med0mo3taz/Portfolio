@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Ahmed Elsawaf | Premium Front-End Developer",
+    title: "Ahmed Elsawaf | Front-End Developer",
     description:
       "Explore the portfolio of Ahmed Elsawaf, a Front-End Developer specializing in crafting modern, high-performance, and scalable web applications using React and Next.js.",
     url: "https://ahmed-elsawaf.vercel.app",
@@ -59,8 +59,6 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/assets/profile.jpg",
-        width: 1200,
-        height: 630,
         alt: "Ahmed Elsawaf - Front-End Developer Profile",
       },
     ],

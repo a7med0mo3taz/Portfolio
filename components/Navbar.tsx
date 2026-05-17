@@ -101,7 +101,7 @@ export default function Navbar() {
 
         {/* Resume Action */}
         <a
-          href="/assets/Ahmed_Elsawaf_Ahmed_Elsawaf_CV.pdf"
+          href="https://drive.google.com/file/d/1Q5c4qHEspQCHmrdj5EeuAg5uXvMThDt-/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className={`font-bold rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(6,182,212,0.1)] hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] flex items-center justify-center ${
@@ -122,7 +122,7 @@ export default function Navbar() {
           Ahmed Elsawaf <span className="text-primary">.</span>
         </Link>
         <a
-          href="/assets/Ahmed_Elsawaf_Ahmed_Elsawaf_CV.pdf"
+          href="https://drive.google.com/file/d/1Q5c4qHEspQCHmrdj5EeuAg5uXvMThDt-/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="px-4 py-1.5 text-xs font-bold rounded-full bg-primary text-dark shadow-[0_0_10px_rgba(6,182,212,0.4)] hover:bg-white transition-colors"
@@ -133,7 +133,7 @@ export default function Navbar() {
 
       {/* Mobile Bottom Dock (Floating iOS Style) */}
       <nav aria-label="Mobile Navigation" className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[400px] z-[100]">
-        <div className="bg-white/80 dark:bg-[#0f1115]/90 backdrop-blur-xl border border-white/10 rounded-full px-2 py-2 flex justify-between items-center shadow-[0_20px_40px_rgba(0,0,0,0.4)] relative">
+        <div className="bg-[#0f1115]/90 backdrop-blur-xl border border-white/10 rounded-full px-2 py-2 flex justify-between items-center shadow-[0_20px_40px_rgba(0,0,0,0.4)] relative">
           {navLinks.map((link) => {
             const isActive = activeSection === link.name;
             const Icon = link.icon;
