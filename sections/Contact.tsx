@@ -17,6 +17,7 @@ import {
   EMAILJS_CONFIG,
   WHATSAPP_NUMBER,
 } from "@/lib/emailjs.config";
+import { RESUME_DOWNLOAD_URL } from "@/constants/resume";
 
 /* ─────────────────────── animation variants ─────────────────────── */
 
@@ -230,10 +231,9 @@ export default function Contact() {
                 <motion.a
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  href="/assets/Ahmed_Moataz_Ahmed_Elsawaf_CV.pdf"
+                  href={RESUME_DOWNLOAD_URL}
                   target="_blank"
                   rel="noreferrer"
-                  download="Ahmed_Elsawaf_CV.pdf"
                   className="mt-auto flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-gradient-to-r from-primary to-secondary text-white font-bold tracking-wide hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] hover:-translate-y-1 transition-all duration-300 shadow-[0_0_20px_rgba(6,182,212,0.2)]"
                 >
                   <FaDownload className="text-lg" /> Download Resume

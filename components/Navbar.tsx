@@ -10,6 +10,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { RESUME_DRIVE_URL } from "@/constants/resume";
 
 const navLinks = [
   { name: "Home", href: "#home", icon: FaHome },
@@ -101,7 +102,7 @@ export default function Navbar() {
 
         {/* Resume Action */}
         <a
-          href="https://drive.google.com/file/d/1Q5c4qHEspQCHmrdj5EeuAg5uXvMThDt-/view?usp=sharing"
+          href={RESUME_DRIVE_URL}
           target="_blank"
           rel="noopener noreferrer"
           className={`font-bold rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(6,182,212,0.1)] hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] flex items-center justify-center ${
@@ -122,7 +123,7 @@ export default function Navbar() {
           Ahmed Elsawaf <span className="text-primary">.</span>
         </Link>
         <a
-          href="https://drive.google.com/file/d/1Q5c4qHEspQCHmrdj5EeuAg5uXvMThDt-/view?usp=sharing"
+          href={RESUME_DRIVE_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="px-4 py-1.5 text-xs font-bold rounded-full bg-primary text-dark shadow-[0_0_10px_rgba(6,182,212,0.4)] hover:bg-white transition-colors"
