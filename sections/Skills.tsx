@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { 
   SiReact, SiNextdotjs, SiTailwindcss, SiTypescript, 
   SiJavascript, SiRedux, SiHtml5, SiCss, SiSass, 
@@ -41,7 +41,7 @@ const skillCategories = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -52,7 +52,7 @@ const containerVariants = {
   },
 };
 
-const categoryVariants = {
+const categoryVariants: Variants = {
   hidden: { y: 50, opacity: 0, scale: 0.95 },
   visible: { 
     y: 0, 
@@ -62,7 +62,7 @@ const categoryVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { scale: 0.5, opacity: 0, rotate: -10 },
   visible: { 
     scale: 1, 

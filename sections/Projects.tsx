@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaCode, FaLock } from "react-icons/fa";
 
 // Real Projects Extracted from GitHub & Categorized
@@ -130,7 +130,7 @@ const projectCategories = [
   }
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -138,7 +138,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 50, opacity: 0, scale: 0.95 },
   visible: { 
     y: 0, 

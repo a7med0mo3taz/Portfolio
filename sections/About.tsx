@@ -1,11 +1,11 @@
 "use client";
 
-import { motion, useInView, useSpring, useTransform } from "framer-motion";
+import { motion, useInView, useSpring, useTransform, Variants } from "framer-motion";
 import { FaGraduationCap, FaCertificate, FaCode } from "react-icons/fa";
 import { useEffect, useRef } from "react";
 
 // Animation Variants
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -15,7 +15,7 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { y: 60, opacity: 0, scale: 0.95 },
   visible: { 
     y: 0, 
@@ -25,7 +25,7 @@ const cardVariants = {
   },
 };
 
-const statVariants = {
+const statVariants: Variants = {
   hidden: { scale: 0.8, opacity: 0 },
   visible: {
     scale: 1,

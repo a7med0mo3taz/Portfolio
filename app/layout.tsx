@@ -17,22 +17,51 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ahmed Moataz | Front-End Developer",
-  description: "Portfolio of Ahmed Moataz, a highly skilled Front-End Developer specializing in React.js, Next.js, TypeScript, and modern futuristic UI/UX design.",
-  keywords: ["Ahmed Moataz", "Front-End Developer", "React Developer", "Next.js", "Portfolio", "Web Developer", "Egypt"],
-  authors: [{ name: "Ahmed Moataz", url: "https://github.com/a7med0mo3taz" }],
-  creator: "Ahmed Moataz",
+  metadataBase: new URL("https://ahmed-Elsawaf.vercel.app"),
+  title: {
+    default: "Ahmed Elsawaf | Front-End Developer",
+    template: "%s | Ahmed Elsawaf",
+  },
+  description:
+    "Explore the portfolio of Ahmed Elsawaf, a Front-End Developer specializing in crafting modern, high-performance, and scalable web applications using React and Next.js.",
+  keywords: [
+    "Ahmed Elsawaf",
+    "Front-End Developer",
+    "React Developer",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Web Developer",
+    "Egypt",
+    "Portfolio",
+    "Software Engineer",
+  ],
+  authors: [{ name: "Ahmed Elsawaf", url: "https://github.com/a7med0mo3taz" }],
+  creator: "Ahmed Elsawaf",
+  category: "technology",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: "Ahmed Moataz | Front-End Developer",
-    description: "Portfolio of Ahmed Moataz, showcasing modern web development projects and premium UI designs.",
-    url: "https://ahmed-moataz.vercel.app", // Adjust if needed
-    siteName: "Ahmed Moataz Portfolio",
+    title: "Ahmed Elsawaf | Premium Front-End Developer",
+    description:
+      "Explore the portfolio of Ahmed Elsawaf, a Front-End Developer specializing in crafting modern, high-performance, and scalable web applications using React and Next.js.",
+    url: "https://ahmed-elsawaf.vercel.app",
+    siteName: "Ahmed Elsawaf Portfolio",
     images: [
       {
-        url: "/assets/og-image.jpg", // Fallback to logo or profile image if not present
+        url: "/assets/profile.jpg",
         width: 1200,
         height: 630,
-        alt: "Ahmed Moataz Portfolio",
+        alt: "Ahmed Elsawaf - Front-End Developer Profile",
       },
     ],
     locale: "en_US",
@@ -40,12 +69,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ahmed Moataz | Front-End Developer",
-    description: "Portfolio of Ahmed Moataz, a highly skilled Front-End Developer.",
-    images: ["/assets/og-image.jpg"],
+    title: "Ahmed Elsawaf | Premium Front-End Developer",
+    description:
+      "Explore the portfolio of Ahmed Elsawaf, a Front-End Developer specializing in crafting modern, high-performance, and scalable web applications.",
+    images: ["/assets/profile.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -54,8 +86,30 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Ahmed Elsawaf",
+    jobTitle: "Front-End Developer",
+    url: "https://ahmed-Elsawaf.vercel.app",
+    sameAs: [
+      "https://github.com/a7med0mo3taz",
+      "https://linkedin.com/in/ahmed-elsawaf-9aa3642b4",
+    ],
+    worksFor: {
+      "@type": "Organization",
+      name: "Freelance / Open to Work",
+    },
+  };
+
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-white selection:bg-primary/30 relative min-h-screen bg-[#050505]`}
       >
@@ -63,13 +117,13 @@ export default function RootLayout({
         <CustomCursor />
         <Navbar />
         {children}
-        <Toaster 
+        <Toaster
           position="bottom-right"
           toastOptions={{
             style: {
-              background: '#111',
-              color: '#fff',
-              border: '1px solid rgba(255,255,255,0.1)',
+              background: "#111",
+              color: "#fff",
+              border: "1px solid rgba(255,255,255,0.1)",
             },
           }}
         />
