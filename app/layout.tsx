@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import CustomCursor from "@/components/CustomCursor";
 import LoadingScreen from "@/components/LoadingScreen";
 import { Toaster } from "react-hot-toast";
 
@@ -112,7 +111,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-white selection:bg-primary/30 relative min-h-screen bg-[#050505]`}
       >
         <LoadingScreen />
-        <CustomCursor />
         <Navbar />
         {children}
         <Toaster

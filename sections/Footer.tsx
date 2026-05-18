@@ -17,8 +17,8 @@ export default function Footer() {
 
   return (
     <footer className="relative pt-20 pb-10 overflow-hidden">
-      {/* Background Ambient Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70vw] h-[300px] bg-primary/10 blur-[120px] pointer-events-none -z-10 rounded-t-[100%]" />
+      {/* Background Ambient Glow (Hidden on mobile) */}
+      <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 w-[70vw] h-[300px] bg-primary/10 blur-[100px] pointer-events-none -z-10 rounded-t-[100%] gpu-accelerated" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10 flex flex-col items-center">
         {/* Floating Glass Dock */}

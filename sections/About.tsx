@@ -16,21 +16,20 @@ const containerVariants: Variants = {
 };
 
 const cardVariants: Variants = {
-  hidden: { y: 60, opacity: 0, scale: 0.95 },
+  hidden: { y: 30, opacity: 0 },
   visible: { 
     y: 0, 
     opacity: 1, 
-    scale: 1,
-    transition: { type: "spring", stiffness: 70, damping: 20 } 
+    transition: { type: "tween", ease: "easeOut", duration: 0.5 } 
   },
 };
 
 const statVariants: Variants = {
-  hidden: { scale: 0.8, opacity: 0 },
+  hidden: { y: 20, opacity: 0 },
   visible: {
-    scale: 1,
+    y: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 100, damping: 15 }
+    transition: { type: "tween", ease: "easeOut", duration: 0.4 }
   }
 };
 
@@ -72,16 +71,16 @@ export default function About() {
   return (
     <section id="about" className="py-32 relative overflow-hidden">
       
-      {/* Immersive Ambient Background Lights */}
+      {/* Immersive Ambient Background Lights (Hidden on mobile) */}
       <motion.div 
         animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 right-0 w-[60vw] h-[60vw] bg-primary/10 rounded-full blur-[150px] -z-10 pointer-events-none" 
+        className="hidden md:block absolute top-1/4 right-0 w-[60vw] h-[60vw] bg-primary/10 rounded-full blur-[100px] -z-10 pointer-events-none gpu-accelerated" 
       />
       <motion.div 
         animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-1/4 left-0 w-[50vw] h-[50vw] bg-secondary/10 rounded-full blur-[130px] -z-10 pointer-events-none" 
+        className="hidden md:block absolute bottom-1/4 left-0 w-[50vw] h-[50vw] bg-secondary/10 rounded-full blur-[90px] -z-10 pointer-events-none gpu-accelerated" 
       />
 
       <div className="container mx-auto px-6 md:px-12 z-10 relative">

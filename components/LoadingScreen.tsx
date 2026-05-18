@@ -21,8 +21,8 @@ export default function LoadingScreen() {
         <motion.div
           key="loading-screen"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
           className="fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-[#050505] overflow-hidden"
         >
           {/* Ambient Lighting Behind Loading Element */}

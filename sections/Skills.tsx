@@ -53,22 +53,20 @@ const containerVariants: Variants = {
 };
 
 const categoryVariants: Variants = {
-  hidden: { y: 50, opacity: 0, scale: 0.95 },
+  hidden: { y: 30, opacity: 0 },
   visible: { 
     y: 0, 
     opacity: 1, 
-    scale: 1,
-    transition: { type: "spring", stiffness: 60, damping: 20 } 
+    transition: { type: "tween", ease: "easeOut", duration: 0.5 } 
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { scale: 0.5, opacity: 0, rotate: -10 },
+  hidden: { scale: 0.9, opacity: 0 },
   visible: { 
     scale: 1, 
     opacity: 1, 
-    rotate: 0,
-    transition: { type: "spring", stiffness: 150, damping: 12 } 
+    transition: { type: "tween", ease: "easeOut", duration: 0.3 } 
   },
 };
 
@@ -76,16 +74,16 @@ export default function Skills() {
   return (
     <section id="skills" className="py-32 relative overflow-hidden">
       
-      {/* Immersive Ambient Background Lights */}
+      {/* Immersive Ambient Background Lights (Hidden on mobile) */}
       <motion.div 
         animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 -left-32 w-[50vw] h-[50vw] bg-primary/10 rounded-full blur-[180px] pointer-events-none -z-10" 
+        className="hidden md:block absolute top-1/4 -left-32 w-[50vw] h-[50vw] bg-primary/10 rounded-full blur-[120px] pointer-events-none -z-10 gpu-accelerated" 
       />
       <motion.div 
         animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.5, 0.2] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-1/4 -right-32 w-[60vw] h-[60vw] bg-secondary/10 rounded-full blur-[180px] pointer-events-none -z-10" 
+        className="hidden md:block absolute bottom-1/4 -right-32 w-[60vw] h-[60vw] bg-secondary/10 rounded-full blur-[120px] pointer-events-none -z-10 gpu-accelerated" 
       />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">

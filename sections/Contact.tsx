@@ -30,11 +30,11 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { y: 40, opacity: 0 },
+  hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 70, damping: 20 },
+    transition: { type: "tween", ease: "easeOut", duration: 0.4 },
   },
 };
 
@@ -123,11 +123,11 @@ export default function Contact() {
   /* ─────────────── render ─────────────── */
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
-      {/* ── Ambient lights ── */}
+      {/* ── Ambient lights (Hidden on mobile for performance) ── */}
       <motion.div
         animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 -left-32 w-[60vw] h-[60vw] bg-primary/10 rounded-full blur-[180px] pointer-events-none -z-10"
+        className="hidden md:block absolute top-1/2 -left-32 w-[60vw] h-[60vw] bg-primary/10 rounded-full blur-[120px] pointer-events-none -z-10 gpu-accelerated"
       />
       <motion.div
         animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.3, 0.1] }}
@@ -137,7 +137,7 @@ export default function Contact() {
           ease: "easeInOut",
           delay: 2,
         }}
-        className="absolute bottom-0 right-0 w-[50vw] h-[50vw] bg-secondary/10 rounded-full blur-[150px] pointer-events-none -z-10"
+        className="hidden md:block absolute bottom-0 right-0 w-[50vw] h-[50vw] bg-secondary/10 rounded-full blur-[100px] pointer-events-none -z-10 gpu-accelerated"
       />
 
       {/* ═══ Main Content ═══ */}

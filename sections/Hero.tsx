@@ -1,12 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
 import Image from "next/image";
 import {
   motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
   Variants,
 } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope, FaReact } from "react-icons/fa";
@@ -24,11 +20,11 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { y: 40, opacity: 0 },
+  hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 100, damping: 20 },
+    transition: { type: "tween", ease: "easeOut", duration: 0.5 },
   },
 };
 
@@ -44,53 +40,25 @@ const floatVariants: Variants = {
 };
 
 export default function Hero() {
-  // Mouse tracking for parallax
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  // Smooth springs for parallax
-  const smoothX = useSpring(mouseX, { damping: 30, stiffness: 100 });
-  const smoothY = useSpring(mouseY, { damping: 30, stiffness: 100 });
-
-  // Transforms for different layers
-  const backgroundX = useTransform(smoothX, [-0.5, 0.5], [-50, 50]);
-  const backgroundY = useTransform(smoothY, [-0.5, 0.5], [-50, 50]);
-
-  const shapesX = useTransform(smoothX, [-0.5, 0.5], [40, -40]);
-  const shapesY = useTransform(smoothY, [-0.5, 0.5], [40, -40]);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = e.clientX / window.innerWidth - 0.5;
-      const y = e.clientY / window.innerHeight - 0.5;
-      mouseX.set(x);
-      mouseY.set(y);
-    };
-
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
 
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
     >
-      {/* Dynamic Animated Glowing Background with Parallax */}
+      {/* Dynamic Animated Glowing Background without Parallax */}
       <motion.div
-        style={{ x: backgroundX, y: backgroundY }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] rounded-full bg-primary/10 blur-[130px] -z-10 pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] rounded-full bg-primary/10 blur-[80px] md:blur-[130px] -z-10 pointer-events-none gpu-accelerated"
       />
 
-      {/* Floating Ambient Shapes with Parallax */}
+      {/* Floating Ambient Shapes (Hidden on Mobile for Perf) */}
       <motion.div
-        style={{ x: shapesX, y: shapesY }}
-        className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
+        className="hidden md:block absolute inset-0 z-0 pointer-events-none overflow-hidden"
       >
         <motion.div
           animate={{ y: [0, -30, 0], rotate: [0, 45, 0], scale: [1, 1.2, 1] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4 w-16 h-16 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-md"
+          className="absolute top-1/4 left-1/4 w-16 h-16 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-md gpu-accelerated"
         />
         <motion.div
           animate={{ y: [0, 40, 0], rotate: [0, -45, 0], scale: [1, 1.1, 1] }}
@@ -100,12 +68,12 @@ export default function Hero() {
             ease: "easeInOut",
             delay: 1,
           }}
-          className="absolute bottom-1/3 right-1/4 w-24 h-24 rounded-full border border-secondary/30 bg-secondary/5 backdrop-blur-md"
+          className="absolute bottom-1/3 right-1/4 w-24 h-24 rounded-full border border-secondary/30 bg-secondary/5 backdrop-blur-md gpu-accelerated"
         />
         <motion.div
           animate={{ x: [0, -20, 0], y: [0, -20, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 right-1/3 w-8 h-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm"
+          className="absolute top-1/3 right-1/3 w-8 h-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm gpu-accelerated"
         />
       </motion.div>
 
